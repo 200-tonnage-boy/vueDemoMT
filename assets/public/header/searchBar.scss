@@ -1,0 +1,84 @@
+.search-bar {
+  width: 1190px;
+  height: 160px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 35px;
+  background-color: #fff;
+  .search-top {
+    height: 100%;//125px
+  }
+  .search-logo {
+    height: 125px; //125px
+    line-height: 125px;
+    img {
+      width: 130px;
+      height: 50px;
+      vertical-align: middle;
+    }
+  }
+  .search-input {
+    height: 120px;
+    box-sizing: border-box;
+    padding-top: 36px;
+    .antd-input-box {//输入框和搜索按钮盒子
+      height: 40px;
+      width: 560px;
+      position: relative;
+      >input {
+        border-color: #41B883;
+        width: 462px;
+        height: 40px;
+        top: -12px;
+      }
+      >button {
+        width: 88px;
+        height: 40px;
+        top: -12px;
+        background-color: #41B883;
+      }
+    }
+    .surrding {//搜索框下面的附近景点
+      height: 25px;
+      margin-top: 5px;
+      line-height: 25px;
+      >a {
+        font-size: 12px;
+        color: #999999;
+        &:hover {
+          color: #41B883;
+        }
+      }
+    }
+  }
+  .search-bottom {// 搜索框下部导航 //猫眼电影等等
+    position: absolute;
+    left: 295px;
+    bottom: 0;
+    height: 35px;
+    li {
+      &:first-child {
+        margin-left: 0px;
+      }
+      float: left;
+      height: 35px;
+      font-size: 16px;
+      margin-left: 20px;
+      line-height: 35px;
+      a {
+        color: #222;
+        font-weight: 700;
+        &:hover {
+          color: #41B883;
+        }
+      }
+      .a-yellow:hover {
+        color: #FDC411;
+      }
+      .a-red:hover {
+        color: #f04d4e;
+      }
+    }
+  }
+}

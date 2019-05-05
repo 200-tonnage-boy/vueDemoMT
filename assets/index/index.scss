@@ -1,0 +1,10 @@
+@import '@/assets/index/menu.scss';
+.index-container {//首页的整体盒子
+  width: 1190px;
+  margin: 0 auto;
+  background-color: #ccc;
+}
+.index-top { //首页顶部盒子  包含菜单和导航
+  height: 430px;
+}
+

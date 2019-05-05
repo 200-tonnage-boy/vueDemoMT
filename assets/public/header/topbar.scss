@@ -6,6 +6,8 @@
 .m-topBar {/*topbar的整体盒子*/
   background-color: #f8f8f8;
   color: #999999;
+  width: 1190px;
+  margin: 0 auto;
 }
 /*城市部分*/
 .change-city {
@@ -16,3 +18,72 @@
   margin: 0 4px;
   padding: 0 2px;
 }
+/*导航部分*/
+.my-nav {
+  float: right;
+  margin-right: 0px;
+  .nav-ul {// ul
+    float: right;
+    >li {
+      float: left;
+      width: 78px;
+      position: relative;
+      z-index: 222;
+      text-align: center;
+      >dl {
+        display: none;
+      }
+      &:hover {
+        border: 1px solid #E5E5E5 {
+          top: none;
+        }
+        background-color: #fff;
+        >dl {
+          display: block;
+        }
+      }
+    }
+    .shop-center {//商家中心
+      dl {
+        width: 140%;
+        position: relative;
+        left: -29px;
+        top: -1px;
+        border: 1px solid #e5e5e5 {
+          right: none;
+        }
+        position: relative;
+        background-color: #fff;
+        &:before {
+          content: " ";
+          display: block;
+          background: #fff;
+          height: 4px;
+          width: 76px;
+          position: absolute;
+          top: -1px;
+          right: 0;
+        }
+      }
+      &:hover {
+        border-bottom: none;
+      }
+    }
+    .nav-website {
+      &:hover {
+        >div {
+          display: block;
+        }
+      }
+      >div {
+        position: relative;
+        display: none;
+        width: 1190px;
+        height: 200px;
+        left: -1112px;
+        background-color: red;
+      }
+    }
+  }
+}
+
