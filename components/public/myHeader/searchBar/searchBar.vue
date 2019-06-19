@@ -8,10 +8,17 @@
       </a-col>
       <a-col :span="16" class="search-input">
         <div class="antd-input-box">
-          <a-input placeholder="搜索商家或地点"/>
+          <a-input placeholder="搜索商家或地点" 
+            @focus="searchFocus"
+            @blur="searchBlur"
+            @input="searchInput"
+            v-model="search" />
           <a-button type="primary">
             <a-icon type="search" />
           </a-button>
+          <dl class="searchList" v-if="searchListTag&&search">
+            <dd v-for="(item,index) of searchList" :key="index">{{item}}</dd>
+          </dl>
         </div>
         <div class="surrding">
           <a href="#">大熊猫繁殖基地</a>
@@ -22,25 +29,49 @@
         </div>
       </a-col>
     </a-row>
-    <a-row class="search-bottom">
-      <ul class="search-nav">
-        <li><nuxt-link to="#" class="a-yellow">美团外卖</nuxt-link></li>
-        <li><nuxt-link to="#" class="a-red">猫眼电影</nuxt-link></li>
-        <li><nuxt-link to="#" class="a-red">美团酒店</nuxt-link></li>
-        <li><nuxt-link to="#" class="a-yellow">民宿/公寓</nuxt-link></li>
-        <li><nuxt-link to="#">商家入驻</nuxt-link></li>
-        <li><nuxt-link to="#" class="a-red">美团公益</nuxt-link></li>
-      </ul>
-    </a-row>
+    
   </div>
 </template>
 <script>
 export default {
-  // methods: {
-  //   onSearch () {
-  //     alert('搜索test')
-  //   }
-  // }
+  data () {
+    return {
+      search: '',
+      searchList: [],
+      inputTimer: '',
+      searchListTag: false,
+    }
+  },
+  methods: {
+    searchFocus () {
+      this.searchListTag = true
+    },
+    searchBlur () {
+      this.searchListTag = false
+    },
+    searchInput () {
+      if (this.inputTimer) {
+        return 
+      } 
+      this.inputTimer = setTimeout (() => {
+        //axios
+        this.searchList = []
+        this.$axios.get('/search/inputWords',{
+          params: {
+            words: this.search,
+            city: this.$store.state.geo.position.city
+          }
+        })
+        .then(({status, data}) => {
+          if (status===200) {
+            this.searchList = data.resList
+          } 
+        })
+        clearTimeout(this.inputTimer)
+        this.inputTimer = ''
+      },300)
+    }
+  }
 }
 </script>
 

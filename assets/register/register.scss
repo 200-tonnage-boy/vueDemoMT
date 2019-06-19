@@ -1,0 +1,45 @@
+//header部分
+.register-header {
+  //min-width: 1190px;
+  height: 60px;
+  //margin: 0 auto;
+  border-bottom: 2px solid #41B883;
+  .header-wraper {
+    width: 1190px;
+    height: 60px;
+    margin: 0 auto;
+    line-height: 60px;
+  }
+  .header-login {//头部右侧
+    float: right;
+    font-size: 15px;
+  }
+  .header-login-a {
+    padding: 3px 10px;
+    background-color: #41B883;
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .nav_index {
+    float: left;
+    font-size: 20px;
+  }
+}
+//表单部分
+.register-form {
+  width: 1190px;
+  margin: 0 auto;
+  padding-right: 250px; 
+  .form-submit {
+    background-color: #41B883;
+  }
+  .myTips {
+    font-size: 14px;
+    color:#f5222d;
+  }
+  .commit-err {
+    padding-left: 20px;
+  }
+}

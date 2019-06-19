@@ -26,6 +26,28 @@
       height: 40px;
       width: 560px;
       position: relative;
+      .searchList {
+        position: absolute;
+        padding-left: 11px;
+
+        top: 41px;
+        width: 462px;
+        z-index: 222;
+        background-color: #fff;
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,.1);
+        border: 1px solid #E5E5E5;
+        box-sizing: border-box;
+        dd {
+          color: #666;
+          font-size: 12px;
+          cursor: pointer;
+          line-height: 2.5;
+          &:hover {
+            background: #F8F8F8;
+            color: #31BBAC;
+          }
+        }
+      }
       >input {
         border-color: #41B883;
         width: 462px;
@@ -52,33 +74,5 @@
       }
     }
   }
-  .search-bottom {// 搜索框下部导航 //猫眼电影等等
-    position: absolute;
-    left: 295px;
-    bottom: 0;
-    height: 35px;
-    li {
-      &:first-child {
-        margin-left: 0px;
-      }
-      float: left;
-      height: 35px;
-      font-size: 16px;
-      margin-left: 20px;
-      line-height: 35px;
-      a {
-        color: #222;
-        font-weight: 700;
-        &:hover {
-          color: #41B883;
-        }
-      }
-      .a-yellow:hover {
-        color: #FDC411;
-      }
-      .a-red:hover {
-        color: #f04d4e;
-      }
-    }
-  }
+  
 }

@@ -1,0 +1,88 @@
+.index-iStyle {//iStyle 组件内的盒子
+  margin-top: 50px;
+  height: 700px;
+  width: 100%;
+  background-color: rgba($color: #86df74, $alpha: 0.8);
+}
+.iStyle-tab {
+  height: 50px;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 50px;
+  background-color: rgba(72, 92, 27, 0.781);
+  li {
+    float: left;
+    padding: 0 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .active { //被选中的tab li项
+    &::after {
+      position: absolute;
+      display: block;
+      right: 0;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      bottom: 0;
+      margin: auto; 
+      border: {
+        left: 5px solid transparent;
+        right: 5px solid transparent;
+        bottom: 7px solid #fff;
+      }
+    }
+  }
+}
+//有格调内容展示部分
+.iStyle-container {
+  height: 650px;
+  //background-color: red;
+}
+.iStyle-show {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap ;
+  height: 650px;
+  width: 100%;
+  margin: 0 auto ;
+}
+.show-item { 
+  height: 315px;
+  box-sizing: border-box;
+  padding: 2px;
+  padding-top: 20px;
+  padding-left: 10px;
+  width: 33.3%;
+  //background-color: yellow;
+  .item-img {
+    img {
+      width: 370px;
+      height: 210px;
+    }
+  }
+  li {
+    padding: {
+      top: 10px;
+      left: 5px;
+    }
+  }
+  .item-price {
+    font-size: 22px;
+    color: #BE9E4D;
+    letter-spacing: -.8px;
+    cursor: pointer;
+  }
+  .item-title {
+    font-size: 16px;
+    color: #222;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 8px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+}

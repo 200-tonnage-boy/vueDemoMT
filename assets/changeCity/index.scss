@@ -1,0 +1,101 @@
+@import '@/assets/changeCity/cityList.scss';
+
+#city-page {
+  padding: 20px;
+  width: 1190px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  background-color: #fff;
+}
+//省份选择部分
+#city-select {
+  height: 70px;
+  //line-height: 70px;
+  border-bottom: 1px solid #E5E5E5;
+  h3 {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    display: inline-block;
+  }
+  //放省份和城市选择的盒子
+  .select-area {
+    display: inline-block;
+    //width: 360px;
+    //height: 40px;
+  }
+  .select-province { //省份选择的盒子
+    padding: 0 10px ;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #E5E5E5;
+    margin: 0 10px 0 20px;
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    color: #666;
+    box-sizing: border-box;
+    i {
+      position: absolute;
+      right: 5px;
+      top: 13px;
+      //bottom: 0;
+      font-size: 14px;
+    }
+  }
+
+  .province-list {// 选择列表
+    display: none;
+    position: absolute;      
+    background-color: skyblue;
+    left: 0;
+    &.show {
+      display: block;
+    }
+    cursor: default;
+    width: 264px;
+    //height: 375px;
+    padding: 20px 0 20px 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.1);
+    border-radius: 4px;
+    z-index: 2;
+    li {
+      display: inline-block;
+      width: 70px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      //margin-right: 30px;
+      cursor: pointer;
+    }
+  }
+  .select-city { // 市区选择盒子
+    @extend .select-province;
+    cursor:no-drop;
+    //pointer-events: none;//让鼠标事件失效 会导致上面一行代码的失效
+    &.cityCursor {
+      cursor: pointer;
+    }
+    &.cityshow {
+      .city-list {
+        display: block;
+      }
+    }
+  }
+  .city-list {// 市区列表
+    @extend .province-list;
+    width: 760px;
+    height: auto;
+    li {
+      width: 90px;
+    }
+  }
+}

@@ -26,6 +26,7 @@
     }
     &:hover {
       background: rgba(255, 255, 255, .2);
+      cursor: pointer;
       &>i {
         opacity: 1;
       }
@@ -48,14 +49,72 @@
   .homestay::before {
     content: "\e622";
   }
+  .movie::before {
+    content: "\e6fb";
+  }
+  .airport::before {
+    content: "\e60d";
+  }
+  .ktv::before {
+    content: "\e644";
+  }
+  .life::before {
+    content: "\e6b9";
+  }
+  .hair::before {
+    content: "\e628";
+  }
+  .marry::before {
+    content: "\e60b";
+  }
+  .offspring::before {
+    content: "\e60a";
+  }
+  .sport::before {
+    content: "\e60e";
+  }
+  .furniture::before {
+    content: "\e600";
+  }
+  .study::before {
+    content: "\e756";
+  }
+  .health::before {
+    content: "\e62f";
+  }
+  .bar::before {
+    content: "\e617";
+  }
 
-  .show-box {
+  .show-box {//菜单隐藏盒子
     height: 430px;
+    padding-left: 30px;
     position: absolute;
     left: 230px;
     width: 400px;
-    top: 50px;
-    background-color: pink;
+    top: 60px;
+    background-color: white;
+    z-index: 999;
+    h4 {
+      margin-top: 24px;
+      height: 22px;
+      line-height: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    span {
+      color: #999;
+      font-size: 12px;
+      line-height: 15px;
+      display: inline-block;
+      margin-right: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: #31BBAC;
+      }
+    }
   }
 }
 

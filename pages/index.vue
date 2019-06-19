@@ -4,16 +4,25 @@
       <a-col :span="5" class="top-menu-uibox">
         <top-menu />
       </a-col>
-      <a-col :span="19">col-12</a-col>
+      <a-col :span="19">
+        <top-life />
+      </a-col>
+    </a-row>
+    <a-row class="index-iStyle-wrapper">
+      <i-style />
     </a-row>
   </section>
 </template>
 
 <script>
-import TopMenu from '@/components/index/menu.vue'
+import topMenu from '@/components/index/menu.vue'
+import topLife from '@/components/index/life.vue'
+import iStyle from '@/components/index/style.vue'
 export default {
   components: {
-    TopMenu,
+    topMenu,
+    topLife,
+    iStyle,
   }
 }
 </script>
