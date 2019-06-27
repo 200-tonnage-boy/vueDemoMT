@@ -1,0 +1,49 @@
+#classify-box {
+  width: 950px;
+  height: 165px;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  padding-top: 10px;
+}
+.type-list {
+  padding: {
+    top: 10px;
+    left: 25px;
+  }
+  font-size: 14px;
+  height: 70px;
+  .label {
+    vertical-align: top;// 文字去上面
+    width: 160px;
+    height: 25px;
+    display: inline-block;
+    span {
+      //width: 75px;
+      height: 25px;
+      line-height: 25px;
+    }
+    .all {
+      margin-left: 10px;
+      display: inline-block;
+      border-radius: 100px;
+      background: #13D1BE;
+      color: #FFF;
+      padding: 0 10px;
+      text-align: center;
+    }
+  }
+  .list {
+    display: inline-block;
+    width: 750px;
+    dd {
+      display: inline-block;
+      width: 120px;
+      height: 28px;
+      line-height: 28px;
+      cursor: pointer;
+      &:hover {
+        color: #41B883;
+      }
+    }
+  }
+}

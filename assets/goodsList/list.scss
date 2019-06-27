@@ -1,0 +1,43 @@
+.goods-list {
+  padding: 11px 20px;
+  img {
+    width: 220px;
+    height: 125px;
+    // img {
+    //   width: 100%;
+    // }
+  }
+  .item {// 商品标签组件内
+    padding: {
+      top: 10px;
+      bottom: 10px;
+    }
+    .detail {
+      margin-left: 10px;
+      display: inline-block;
+      vertical-align: top;
+      dd {
+        padding: {
+          top: 5px;
+          bottom: 5px;
+        }
+      }
+      .title {
+        font-weight: 500;
+        font-size: 16px;
+        color: #333;
+        &>a:hover {
+          color: #333;
+        }
+      }
+      .price {
+        color: #F60;
+        font-size: 12px;
+      }
+      .noPrice {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+}

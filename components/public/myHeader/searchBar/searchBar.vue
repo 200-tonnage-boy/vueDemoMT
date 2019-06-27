@@ -2,34 +2,32 @@
   <div class="search-bar">
     <a-row class="search-top">
       <a-col :span="6" class="search-logo">
-        <img
+        <a href="/"><img
           src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png"
-          alt="美团">
+          alt="美团"></a>
       </a-col>
       <a-col :span="16" class="search-input">
-        <div class="antd-input-box">
+        <div class="antd-input-box" tabindex="-1">
           <a-input placeholder="搜索商家或地点" 
-            @focus="searchFocus"
-            @blur="searchBlur"
+            @blur="searchBlur" 
+            @focus="searchFocus"        
             @input="searchInput"
             v-model="search" />
           <a-button type="primary">
             <a-icon type="search" />
           </a-button>
           <dl class="searchList" v-if="searchListTag&&search">
-            <dd v-for="(item,index) of searchList" :key="index">{{item}}</dd>
+            <dd v-for="(item,index) of searchList" :key="index">
+              <!-- {{item}} -->
+              <nuxt-link :to="{path:'/goodsList', query:{keyWord:item}}">{{item}}</nuxt-link>
+            </dd>
           </dl>
         </div>
         <div class="surrding">
-          <a href="#">大熊猫繁殖基地</a>
-          <a href="#">成都失恋博物馆</a>
-          <a href="#">成都欢乐谷</a>
-          <a href="#">成都海昌极地公园</a>
-          <a href="#">成都动物园</a>
+          <nuxt-link :to="{path:'/goodsList', query:{keyWord:item}}" v-for="item in initList" :key="item">{{item}}</nuxt-link>
         </div>
       </a-col>
-    </a-row>
-    
+    </a-row>   
   </div>
 </template>
 <script>
@@ -40,6 +38,7 @@ export default {
       searchList: [],
       inputTimer: '',
       searchListTag: false,
+      initList: [],
     }
   },
   methods: {
@@ -47,7 +46,10 @@ export default {
       this.searchListTag = true
     },
     searchBlur () {
-      this.searchListTag = false
+      if (timer) {return}
+      let timer = setTimeout(()=> {
+        this.searchListTag = false
+      },500)
     },
     searchInput () {
       if (this.inputTimer) {
@@ -56,13 +58,15 @@ export default {
       this.inputTimer = setTimeout (() => {
         //axios
         this.searchList = []
+        //console.log(this.$store.state.geo.position.adcode)
         this.$axios.get('/search/inputWords',{
           params: {
             words: this.search,
-            city: this.$store.state.geo.position.city
+            city: this.$store.state.geo.position.adcode
           }
         })
         .then(({status, data}) => {
+          //console.log(data)
           if (status===200) {
             this.searchList = data.resList
           } 
@@ -71,6 +75,18 @@ export default {
         this.inputTimer = ''
       },300)
     }
+  },
+  mounted () {
+    this.$axios.get('/search/inputWords',{
+      params: {
+        words: '游玩',
+        city: this.$store.state.geo.position.adcode
+      }
+    }).then(({status, data}) => {
+      if (status===200) {
+        this.initList = data.resList
+      } 
+    })
   }
 }
 </script>

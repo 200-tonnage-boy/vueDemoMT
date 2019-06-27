@@ -1,4 +1,56 @@
-#city-list {
-  height: 1500px;
-  background-color: skyblue;
+// #city-list {
+//   //height: 1500px;
+//   //background-color: skyblue;
+// }
+.top-letterList {
+  height: 70px;
+  //line-height: 70px;
+  //border-bottom: 1px solid #E5E5E5;
+  line-height: 70px;
+  h3 {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    display: inline-block;
+  }
+  .letter-box {
+    display: inline-block;
+    a {
+      margin: 0 12px;
+      color: #666;
+    }
+  }
+}
+
+.city-box {
+  padding: 20px 30px 13px 10px;
+  .cityItem-box {
+    display: inline-block;
+    max-width: 1000px;
+    //margin-left: 80px;
+  }
+  .city,.title{
+    display: inline-block;
+  }
+  .title {// 每个区块中的字母
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-top: 10px;
+    //display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: #13D1BE;
+    box-shadow: 0 4px 5px 0 rgba(39,178,164,.22);
+  }
+  .city {// 城市 -dd
+    margin: 10px 20px;
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+
+  }
+
 }

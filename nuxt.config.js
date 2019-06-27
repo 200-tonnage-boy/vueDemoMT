@@ -65,6 +65,7 @@ module.exports = {
     extend(config, ctx) {
     },
     
-    cache:true
+    cache:true,
+    parallel: true
   }
 }

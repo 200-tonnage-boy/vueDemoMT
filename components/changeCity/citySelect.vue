@@ -1,6 +1,6 @@
 <template>
   <div id="city-select">
-    <h3>按省份选择</h3>
+    <h3>按省份选择：</h3>
     <div class="select-area">
       <div class="select-province" 
         @focus="showTag = true" 

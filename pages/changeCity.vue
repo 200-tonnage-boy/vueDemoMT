@@ -4,10 +4,10 @@
       <city-select />
     </a-row>
     <a-row>
-      热门城市
+      <hot-city />
     </a-row>
     <a-row>
-      选择历史
+      <history-city />
     </a-row>
     <a-row>
       <city-list />
@@ -17,10 +17,14 @@
 <script>
 import citySelect from '@/components/changeCity/citySelect'
 import cityList from '@/components/changeCity/cityList'
+import hotCity from '@/components/changeCity/hotCity'
+import historyCity from '@/components/changeCity/historyCity'
 export default {
   components: {
     citySelect,
     cityList,
+    hotCity,
+    historyCity,
   }
 }
 </script>

@@ -1,7 +1,8 @@
-import Router from 'koa-router';
+import Router from 'koa-router'
 import axios from './utils/axios'
 import Menu from '../dbs/models/menu'
-
+import pinyin from 'node-pinyin'
+import fs from'fs'
 let router = new Router({prefix: '/geo'})// 添加统一前缀
 
 router.get('/getPosition', async (ctx) => {
@@ -11,7 +12,8 @@ router.get('/getPosition', async (ctx) => {
   if(status===200&&data.status==='1') {
     ctx.body = {
       province: data.province,
-      city: data.city
+      city: data.city,
+      adcode: data.adcode,
     }
   } else {
     ctx.body = {
@@ -85,6 +87,67 @@ router.get('/getCity', async (ctx) => {
     ctx.body = {
       code: -1,
       city: 'no params'
+    }
+  }
+})
+// 所有城市
+router.get('/getCityList', async (ctx) => {
+  let {data}=await axios.get('https://restapi.amap.com/v3/config/district',{
+    params: {
+      keywords: '中国',
+      subdistrict: 2,
+      key: '32c0352854e7f569d5cff1347edae42e'
+    }
+  })
+  if (data.status === '1') {
+    let receive = [],res = [],s,cityPinyin // receive接收从高德接口返回的数据   // res为返回客户端的数据，s为临时变量
+    data.districts[0].districts.forEach((item) => {
+      //此处item是省份
+      item.districts.forEach((ele) => {
+        // 此处ele为市一级城市
+        
+        receive.push(ele.name.replace(/市|特别行政区|/g,""))
+      })
+    })
+
+    for (let i=65; i<=90; i++) {//创建A-Z的分类   每个对象有一个title  一个city数组
+      s = String.fromCharCode(i)
+      res.push({
+        title: s,
+        city: []
+      })
+    }
+    let test = []
+    receive.forEach((item) => {
+      cityPinyin = pinyin(item, {style: 'normal'})[0][0].slice(0,1).toUpperCase()//获取城市的拼音首字母
+      test.push(cityPinyin)
+      res.forEach((ele) => {// ele为对象  包含title和city数组
+        if (ele.title === cityPinyin) {
+          ele.city.push(item)
+          return false
+        }
+      })
+    })
+    let allCity = res.filter(item => item.city.length > 0)// 把没有城市的部分剔除掉  如I O等
+    //测试部分
+    let testS = JSON.stringify(allCity)
+    fs.writeFile('/static/city.json',testS,(err)=>{
+      if (err) {
+        console.log('err:'+err)
+      } else {
+        console.log('sucss')
+      }
+    })
+    //测试部分
+    ctx.body = {
+      code: 0,
+      allCity,
+    }
+
+  } else {
+    ctx.body = {
+      code: -1,
+      msg:'接口错误'
     }
   }
 })
