@@ -34,7 +34,7 @@
     "vue-occupy": "0.0.9"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0"
   }
