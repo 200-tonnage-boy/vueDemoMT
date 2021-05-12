@@ -28,7 +28,7 @@
     "mongoose": "^5.5.10",
     "node-pinyin": "^0.2.3",
     "node-sass": "^4.11.0",
-    "nodemailer": "^6.1.1",
+    "nodemailer": "^6.4.16",
     "nuxt": "^2.4.0",
     "passport-local": "^1.0.0",
     "vue-occupy": "0.0.9"
