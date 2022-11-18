@@ -29,7 +29,7 @@
     "node-pinyin": "^0.2.3",
     "node-sass": "^4.11.0",
     "nodemailer": "^6.1.1",
-    "nuxt": "^2.4.0",
+    "nuxt": "^2.15.8",
     "passport-local": "^1.0.0",
     "vue-occupy": "0.0.9"
   },
